@@ -12,7 +12,7 @@ body {
 }
 
 #calculator-container {
-    background-color: rgb(131, 128, 128);
+    background-color: rgb(245, 238, 238);
     display: flex;
     flex-direction: column;
     width: 300px;
@@ -44,10 +44,12 @@ body {
     font-size: 20px;
     margin: 5px;
     border-radius: 5px;
+    border: none;
+    box-shadow: 2px 1px 2px rgb(46, 46, 46);
 }
 
 .btn.num {
-    background-color: rgb(175, 173, 173);
+    background-color: rgb(10, 187, 149);
 }
 
 .btn.oper {
@@ -64,4 +66,8 @@ body {
 
 #btn-delete {
     background-color: rgb(248, 81, 81);
+}
+
+.btn:active {
+    transform: scale(0.95);
 }
