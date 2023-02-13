@@ -32,11 +32,19 @@ body {
 
 #screen {
     background-color: rgb(202, 202, 202);
+    position: relative;
     height: 100px;
     width: auto;
     margin: 5px;
     border-radius: 5px;
     border: 1px solid black;
+}
+
+#screen-text {
+    font-size: 45px;
+    position: absolute;
+    bottom: 5px;
+    right: 10px;
 }
 
 .btn {
