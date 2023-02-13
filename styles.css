@@ -45,3 +45,23 @@ body {
     margin: 5px;
     border-radius: 5px;
 }
+
+.btn.num {
+    background-color: rgb(175, 173, 173);
+}
+
+.btn.oper {
+    background-color: rgb(108, 108, 231);
+}
+
+#btn-equals {
+    background-color: rgb(233, 103, 233);
+}
+
+#btn-clear {
+    background-color: rgb(248, 191, 85);
+}
+
+#btn-delete {
+    background-color: rgb(248, 81, 81);
+}
