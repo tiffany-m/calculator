@@ -56,7 +56,12 @@ body {
     margin: 5px;
     border-radius: 5px;
     border: none;
+    box-shadow: 2px 1px 5px rgb(46, 46, 46);
+}
+
+.btn:active {
     box-shadow: 2px 1px 2px rgb(46, 46, 46);
+    transform: scale(0.95);
 }
 
 .btn.num {
@@ -79,6 +84,3 @@ body {
     background-color: #BC577F;
 }
 
-.btn:active {
-    transform: scale(0.95);
-}
