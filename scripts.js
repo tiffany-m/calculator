@@ -15,6 +15,8 @@ btnNum.forEach(button => button.addEventListener('click', (e) => {
     }   
 }))
 
+btnClear.addEventListener('click', () => displayText.textContent = '_');
+
 function add(a, b) {
     return a + b;
 }
