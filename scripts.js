@@ -1,5 +1,10 @@
 let displayText = document.getElementById('display-text');
-let btnNum = document.querySelectorAll('.num')
+
+const btnNum = document.querySelectorAll('.num');
+const btnOperator = document.querySelectorAll('.operator');
+const btnClear = document.getElementById('btn-clear');
+const btnDelete = document.getElementById('btn-delete');
+const btnEquals = document.getElementById('btn-equals');
 
 btnNum.forEach(button => button.addEventListener('click', (e) => {
     if (displayText.textContent === '_') {
