@@ -17,6 +17,17 @@ btnNum.forEach(button => button.addEventListener('click', (e) => {
 
 btnClear.addEventListener('click', () => displayText.textContent = '_');
 
+btnDelete.addEventListener('click', () => {
+    let newStr = displayText.textContent;
+    let len = newStr.length;
+
+    if (len < 2) {
+        return displayText.textContent = '_';
+    }
+
+    displayText.textContent = newStr.slice(0, len - 1);
+});
+
 function add(a, b) {
     return a + b;
 }
