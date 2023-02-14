@@ -1,5 +1,4 @@
 let displayText = document.getElementById('display-text');
-
 const btnNum = document.querySelectorAll('.num');
 const btnOperator = document.querySelectorAll('.operator');
 const btnClear = document.getElementById('btn-clear');
@@ -13,6 +12,10 @@ btnNum.forEach(button => button.addEventListener('click', (e) => {
         console.log(typeof(displayText.textContent))
         displayText.textContent += e.target.value;
     }   
+}))
+
+btnOperator.forEach(button => button.addEventListener('click', (e) => {
+        operator = e.target.value;
 }))
 
 btnClear.addEventListener('click', () => displayText.textContent = '_');
@@ -29,20 +32,20 @@ btnDelete.addEventListener('click', () => {
 });
 
 function add(a, b) {
-    return a + b;
+    return displayText.textContent = a + b;
 }
 
 function subtract(a, b) {
-    return a - b;
+    return displayText.textContent = a - b;
 }
 
 function multiply(a, b) {
-    return a * b;
+    return displayText.textContent = a * b;
 }
 
 function divide(a, b) {
     if (a === 0 || b === 0) return displayText.textContent = 'ERROR';
-    return a / b;
+    return displayText.textContent = a / b;
 }
 
 function operate(operator, a, b) {
