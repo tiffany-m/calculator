@@ -43,7 +43,8 @@ body {
 }
 
 #screen-text {
-    font-size: 45px;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 30px;
     position: absolute;
     bottom: 5px;
     right: 10px;
