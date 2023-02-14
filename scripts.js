@@ -1,10 +1,14 @@
 let displayText = document.getElementById('display-text');
-let btnClicked = document.querySelectorAll('.btn')
+let btnNum = document.querySelectorAll('.num')
 
-btnClicked.forEach(button => button.addEventListener('click', (e) => {
-    displayText.textContent = displayText.textContent + e.target.value;
+btnNum.forEach(button => button.addEventListener('click', (e) => {
+    if (displayText.textContent === '_') {
+        displayText.textContent = e.target.value;
+    } else {
+        console.log(typeof(displayText.textContent))
+        displayText.textContent += e.target.value;
+    }   
 }))
-
 
 function add(a, b) {
     return a + b;
