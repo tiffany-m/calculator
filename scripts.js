@@ -1,3 +1,11 @@
+let displayText = document.getElementById('display-text');
+let btnClicked = document.querySelectorAll('.btn')
+
+btnClicked.forEach(button => button.addEventListener('click', (e) => {
+    displayText.textContent = displayText.textContent + e.target.value;
+}))
+
+
 function add(a, b) {
     return a + b;
 }

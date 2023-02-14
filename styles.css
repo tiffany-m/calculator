@@ -38,7 +38,7 @@ body {
     border: 1px solid black;
 }
 
-#screen-text {
+#display-text {
     font-family: 'Orbitron', sans-serif;
     font-size: 30px;
     position: absolute;
@@ -64,7 +64,7 @@ body {
     background-color: #71CBC9;
 }
 
-.btn.oper {
+.btn.operator {
     background-color: #28A5D1;
 }
 
