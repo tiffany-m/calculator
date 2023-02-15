@@ -6,7 +6,7 @@ const btnDelete = document.getElementById('btn-delete');
 const btnEquals = document.getElementById('btn-equals');
 
 btnNum.forEach(button => button.addEventListener('click', (e) => {
-    if (displayText.textContent === '_') {
+    if (displayText.textContent === '') {
         displayText.textContent = e.target.value;
     } else {
         console.log(typeof(displayText.textContent))
@@ -18,14 +18,14 @@ btnOperator.forEach(button => button.addEventListener('click', (e) => {
         operator = e.target.value;
 }))
 
-btnClear.addEventListener('click', () => displayText.textContent = '_');
+btnClear.addEventListener('click', () => displayText.textContent = '');
 
 btnDelete.addEventListener('click', () => {
     let newStr = displayText.textContent;
     let len = newStr.length;
 
     if (len < 2) {
-        return displayText.textContent = '_';
+        return displayText.textContent = '';
     }
 
     displayText.textContent = newStr.slice(0, len - 1);
