@@ -31,8 +31,9 @@ btnDelete.addEventListener('click', () => {
 });
 
 btnEquals.addEventListener('click', () => {
+    // [] - define character set to match, '-' char needs escape next to it so it's not interperted as regex syntax
+    // /g - flag indicates it will match all occurrences of the pattern in input string not just first
     let regex = /[+\-*/]/g;
-    console.log("input", input)
     let operators = input.match(regex);
     let numbers = input.split(regex).map(Number);
     answer = numbers[0];
