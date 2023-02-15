@@ -30,38 +30,34 @@ btnDelete.addEventListener('click', () => {
     displayText.textContent = input;
 });
 
-function add(a, b) {
-    return displayText.textContent = a + b;
-}
+btnEquals.addEventListener('click', () => {
+    let regex = /[+\-*/]/g;
+    console.log("input", input)
+    let operators = input.match(regex);
+    let numbers = input.split(regex).map(Number);
+    answer = numbers[0];
 
-function subtract(a, b) {
-    return displayText.textContent = a - b;
-}
-
-function multiply(a, b) {
-    return displayText.textContent = a * b;
-}
-
-function divide(a, b) {
-    if (a === 0 || b === 0) return displayText.textContent = 'ERROR';
-    return displayText.textContent = a / b;
-}
-
-function operate(operator, a, b) {
-    switch(operator) {
-        case '+':
-            add(a, b);
-            break;
-        case '-':
-            subtract(a, b);
-            break;
-        case 'x':
-            multiply(a, b);
-            break;
-        case '/':
-            divide(a, b);
-            break;
-        default:
-            console.log("ERROR");
+    for (let i = 0; i < operators.length; i++) {
+        let op = operators[i];
+        let num = numbers[i + 1];
+        switch (op) {
+            case "+":
+                answer += num;
+                break;
+            case "-":
+                answer -= num;
+                break;
+            case "*":
+                answer *= num;
+                break;
+            case "/":
+                answer /= num;
+                break;
+            default:
+                console.log("ERROR");
+        }
     }
-}
+
+    displayAnswer.textContent = answer;
+    input = "";
+})
