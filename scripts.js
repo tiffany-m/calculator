@@ -1,36 +1,33 @@
 let displayText = document.getElementById('display-text');
 let displayAnswer = document.getElementById('display-answer');
-let btnInputs = document.querySelectorAll('.input');
+const btnInputs = document.querySelectorAll('.input');
 const btnClear = document.getElementById('btn-clear');
 const btnDelete = document.getElementById('btn-delete');
 const btnEquals = document.getElementById('btn-equals');
 
+let answer = '';
 let input = '';
 
-btnNum.forEach(button => button.addEventListener('click', (e) => {
-    if (displayText.textContent === '') {
-        displayText.textContent = e.target.value;
-    } else {
-        console.log(typeof(displayText.textContent))
-        displayText.textContent += e.target.value;
-    }   
+btnInputs.forEach(button => button.addEventListener('click', (e) => {
+    input += e.target.value;
+    displayText.textContent = input;
 }))
 
-btnOperator.forEach(button => button.addEventListener('click', (e) => {
-        operator = e.target.value;
-}))
-
-btnClear.addEventListener('click', () => displayText.textContent = '');
+btnClear.addEventListener('click', () => {
+    input = '';
+    displayText.textContent = input;
+});
 
 btnDelete.addEventListener('click', () => {
-    let newStr = displayText.textContent;
-    let len = newStr.length;
+    let len = input.length;
 
     if (len < 2) {
-        return displayText.textContent = '';
+        input = '';
+        displayText.textContent = input;
     }
 
-    displayText.textContent = newStr.slice(0, len - 1);
+    input = input.slice(0, len - 1);
+    displayText.textContent = input;
 });
 
 function add(a, b) {
