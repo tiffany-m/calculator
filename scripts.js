@@ -1,9 +1,11 @@
 let displayText = document.getElementById('display-text');
-const btnNum = document.querySelectorAll('.num');
-const btnOperator = document.querySelectorAll('.operator');
+let displayAnswer = document.getElementById('display-answer');
+let btnInputs = document.querySelectorAll('.input');
 const btnClear = document.getElementById('btn-clear');
 const btnDelete = document.getElementById('btn-delete');
 const btnEquals = document.getElementById('btn-equals');
+
+let input = '';
 
 btnNum.forEach(button => button.addEventListener('click', (e) => {
     if (displayText.textContent === '') {
