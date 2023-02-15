@@ -38,10 +38,19 @@ body {
     border: 1px solid black;
 }
 
-#display-text {
+#display-text, #display-answer {
     font-family: 'Orbitron', sans-serif;
-    font-size: 30px;
     position: absolute;
+}
+
+#display-text {
+    font-size: 30px;
+    top: 5px;
+    right: 10px;
+}
+
+#display-answer {
+    font-size: 35px;
     bottom: 5px;
     right: 10px;
 }
