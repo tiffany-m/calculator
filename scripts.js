@@ -61,4 +61,5 @@ btnEquals.addEventListener('click', () => {
 
     displayAnswer.textContent = answer;
     input = "";
+    displayText.textContent = input;
 })
