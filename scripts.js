@@ -54,10 +54,19 @@ btnEquals.addEventListener('click', () => {
                 answer *= num;
                 break;
             case "/":
+                console.log(num);
+                console.log(typeof(num))
+                if (num === 0) {
+                    displayText.style.paddingLeft = "10px";
+                    displayText.style.fontSize = "20px";
+                    displayText.textContent = "ERROR! CANNOT DIVIDE BY ZERO!";
+                    return displayAnswer.textContent = "";
+                } else {
                 answer /= num;
+                }
                 break;
             default:
-                console.log("ERROR");
+                displayAnswer.textContent = "ERROR!"
         }
     }
 
