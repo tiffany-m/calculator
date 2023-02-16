@@ -17,6 +17,7 @@ btnInputs.forEach(button => button.addEventListener('click', (e) => {
 btnClear.addEventListener('click', () => {
     input = '';
     displayText.textContent = input;
+    displayAnswer.textContent = "";
 });
 
 btnDelete.addEventListener('click', () => {
