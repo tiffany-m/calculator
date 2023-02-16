@@ -9,6 +9,7 @@ let answer = '';
 let input = '';
 
 btnInputs.forEach(button => button.addEventListener('click', (e) => {
+    if (answer) displayAnswer.textContent = "";
     input += e.target.value;
     displayText.textContent = input;
 }))
