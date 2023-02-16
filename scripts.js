@@ -40,6 +40,8 @@ btnEquals.addEventListener('click', () => {
     let numbers = input.split(regex).map(Number);
     answer = numbers[0];
 
+    if(operators === null) return displayText.textContent = "ERROR!";
+
     for (let i = 0; i < operators.length; i++) {
         let op = operators[i];
         let num = numbers[i + 1];
