@@ -70,7 +70,7 @@ btnEquals.addEventListener('click', () => {
         }
     }
 
-    let roundedAnswer = Number(answer).toFixed(2);
+    let roundedAnswer = Math.round(answer * 100) / 100
 
     displayAnswer.textContent = roundedAnswer;
     input = "";
