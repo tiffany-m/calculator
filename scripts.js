@@ -61,7 +61,9 @@ btnEquals.addEventListener('click', () => {
         }
     }
 
-    displayAnswer.textContent = answer;
+    let roundedAnswer = Number(answer).toFixed(2);
+
+    displayAnswer.textContent = roundedAnswer;
     input = "";
     displayText.textContent = input;
 })
