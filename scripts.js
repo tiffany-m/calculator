@@ -8,18 +8,23 @@ const btnEquals = document.getElementById('btn-equals');
 let answer = '';
 let input = '';
 
+function displayTextOnScreen(str) {
+    displayText.textContent = str;
+}
+
 function checkInputLength(str) {
     if (str.length > 23) {
-        displayText.textContent = `ERROR! TO MANY INPUTS`;
+        let calcError = `ERROR! TO MANY INPUTS`;
+        displayTextOnScreen(calcError);
         return;
     } else {
-        displayText.textContent = input;
+        displayTextOnScreen(input);
     }
 }
 
 function clearScreen() {
     input = '';
-    displayText.textContent = input;
+    displayTextOnScreen(input);
     displayAnswer.textContent = "";
 }
 
@@ -28,11 +33,11 @@ function backSpace() {
 
     if (len < 2) {
         input = '';
-        displayText.textContent = input;
+        displayTextOnScreen(input);
     }
 
     input = input.slice(0, len - 1);
-    displayText.textContent = input;
+    displayTextOnScreen(input);
 }
 
 function calculateEquation() {
@@ -43,7 +48,10 @@ function calculateEquation() {
     let numbers = input.split(regex).map(Number);
     answer = numbers[0];
 
-    if (operators === null) return displayText.textContent = "ERROR!";
+    if (operators === null) {
+        let calcError = "ERROR!";
+        displayTextOnScreen(calcError);
+    }
 
     for (let i = 0; i < operators.length; i++) {
         let op = operators[i];
@@ -62,9 +70,10 @@ function calculateEquation() {
                 console.log(num);
                 console.log(typeof (num))
                 if (num === 0) {
+                    let calcError = "ERROR! CANNOT DIVIDE BY ZERO!";
                     displayText.style.paddingLeft = "10px";
                     displayText.style.fontSize = "20px";
-                    displayText.textContent = "ERROR! CANNOT DIVIDE BY ZERO!";
+                    displayTextOnScreen(calcError);
                     return displayAnswer.textContent = "";
                 } else {
                     answer /= num;
@@ -79,7 +88,7 @@ function calculateEquation() {
 
     displayAnswer.textContent = roundedAnswer;
     input = "";
-    displayText.textContent = input;
+    displayTextOnScreen(input);
 }
 
 btnInputs.forEach(button => button.addEventListener('click', (e) => {
