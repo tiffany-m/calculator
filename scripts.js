@@ -78,3 +78,79 @@ btnEquals.addEventListener('click', () => {
     input = "";
     displayText.textContent = input;
 })
+
+document.onkeydown = function (e) {
+    console.log(e)
+    if (answer) displayAnswer.textContent = "";
+
+    if(e.key === 'c') {
+        input = '';
+        displayText.textContent = input;
+        displayAnswer.textContent = "";
+        return;
+    }
+
+    if(e.key === 'Backspace'){
+        let len = input.length;
+
+        if (len < 2) {
+            input = '';
+            displayText.textContent = input;
+        }
+
+        input = input.slice(0, len - 1);
+        displayText.textContent = input;
+        return;
+    }
+
+    if (e.key === 'Shift') return;
+
+    if(e.key === '=') {
+        let regex = /[+\-*/]/g;
+        let operators = input.match(regex);
+        let numbers = input.split(regex).map(Number);
+        answer = numbers[0];
+
+        if (operators === null) return displayText.textContent = "ERROR!";
+
+        for (let i = 0; i < operators.length; i++) {
+            let op = operators[i];
+            let num = numbers[i + 1];
+            switch (op) {
+                case "+":
+                    answer += num;
+                    break;
+                case "-":
+                    answer -= num;
+                    break;
+                case "*":
+                    answer *= num;
+                    break;
+                case "/":
+                    console.log(num);
+                    console.log(typeof (num))
+                    if (num === 0) {
+                        displayText.style.paddingLeft = "10px";
+                        displayText.style.fontSize = "20px";
+                        displayText.textContent = "ERROR! CANNOT DIVIDE BY ZERO!";
+                        return displayAnswer.textContent = "";
+                    } else {
+                        answer /= num;
+                    }
+                    break;
+                default:
+                    displayAnswer.textContent = "ERROR!"
+            }
+        }
+
+        let roundedAnswer = Math.round(answer * 100) / 100
+
+        displayAnswer.textContent = roundedAnswer;
+        input = "";
+        displayText.textContent = input;
+        return;
+    }
+
+    input += e.key;
+    displayText.textContent = input;
+};
