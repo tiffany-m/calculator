@@ -35,22 +35,7 @@ function backSpaceOnce() {
     displayText.textContent = input;
 }
 
-btnInputs.forEach(button => button.addEventListener('click', (e) => {
-    if (answer) displayAnswer.textContent = "";
-    input += e.target.value;
-
-    checkInputLength(input);
-}))
-
-btnClear.addEventListener('click', () => {
-    clearScreen();
-});
-
-btnDelete.addEventListener('click', () => {
-    backSpaceOnce();
-});
-
-btnEquals.addEventListener('click', () => {
+function calculateEquation() {
     // [] - define character set to match, '-' char needs escape next to it so it's not interperted as regex syntax
     // /g - flag indicates it will match all occurrences of the pattern in input string not just first
     let regex = /[+\-*/]/g;
@@ -95,6 +80,25 @@ btnEquals.addEventListener('click', () => {
     displayAnswer.textContent = roundedAnswer;
     input = "";
     displayText.textContent = input;
+}
+
+btnInputs.forEach(button => button.addEventListener('click', (e) => {
+    if (answer) displayAnswer.textContent = "";
+    input += e.target.value;
+
+    checkInputLength(input);
+}))
+
+btnClear.addEventListener('click', () => {
+    clearScreen();
+});
+
+btnDelete.addEventListener('click', () => {
+    backSpaceOnce();
+});
+
+btnEquals.addEventListener('click', () => {
+    calculateEquation();
 })
 
 document.onkeydown = function (e) {
@@ -114,48 +118,7 @@ document.onkeydown = function (e) {
     if (e.key === 'Shift') return;
 
     if (e.key === '=') {
-        let regex = /[+\-*/]/g;
-        let operators = input.match(regex);
-        let numbers = input.split(regex).map(Number);
-        answer = numbers[0];
-
-        if (operators === null) return displayText.textContent = "ERROR!";
-
-        for (let i = 0; i < operators.length; i++) {
-            let op = operators[i];
-            let num = numbers[i + 1];
-            switch (op) {
-                case "+":
-                    answer += num;
-                    break;
-                case "-":
-                    answer -= num;
-                    break;
-                case "*":
-                    answer *= num;
-                    break;
-                case "/":
-                    console.log(num);
-                    console.log(typeof (num))
-                    if (num === 0) {
-                        displayText.style.paddingLeft = "10px";
-                        displayText.style.fontSize = "20px";
-                        displayText.textContent = "ERROR! CANNOT DIVIDE BY ZERO!";
-                        return displayAnswer.textContent = "";
-                    } else {
-                        answer /= num;
-                    }
-                    break;
-                default:
-                    displayAnswer.textContent = "ERROR!"
-            }
-        }
-
-        let roundedAnswer = Math.round(answer * 100) / 100
-
-        displayAnswer.textContent = roundedAnswer;
-        input = "";
-        displayText.textContent = input;
+        calculateEquation();
         return;
     }
 
