@@ -18,6 +18,11 @@ function checkInputLength(str) {
     }
 }
 
+function clearScreen() {
+    input = '';
+    displayText.textContent = input;
+    displayAnswer.textContent = "";
+}
 
 btnInputs.forEach(button => button.addEventListener('click', (e) => {
     if (answer) displayAnswer.textContent = "";
@@ -27,9 +32,7 @@ btnInputs.forEach(button => button.addEventListener('click', (e) => {
 }))
 
 btnClear.addEventListener('click', () => {
-    input = '';
-    displayText.textContent = input;
-    displayAnswer.textContent = "";
+    clearScreen();
 });
 
 btnDelete.addEventListener('click', () => {
@@ -96,9 +99,7 @@ document.onkeydown = function (e) {
     if (answer) displayAnswer.textContent = "";
 
     if (e.key === 'c') {
-        input = '';
-        displayText.textContent = input;
-        displayAnswer.textContent = "";
+        clearScreen();
         return;
     }
 
