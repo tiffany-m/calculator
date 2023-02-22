@@ -8,16 +8,22 @@ const btnEquals = document.getElementById('btn-equals');
 let answer = '';
 let input = '';
 
+// checks input length before displaying
+function checkInputLength(str) {
+    if (str.length > 23) {
+        displayText.textContent = `ERROR! TO MANY INPUTS`;
+        return;
+    } else {
+        displayText.textContent = input;
+    }
+}
+
+
 btnInputs.forEach(button => button.addEventListener('click', (e) => {
     if (answer) displayAnswer.textContent = "";
     input += e.target.value;
 
-    if (input.length > 23) {
-        displayText.textContent = `ERROR! TO MANY INPUTS`;
-        return;
-    }
-
-    displayText.textContent = input;
+    checkInputLength(input);
 }))
 
 btnClear.addEventListener('click', () => {
@@ -46,7 +52,7 @@ btnEquals.addEventListener('click', () => {
     let numbers = input.split(regex).map(Number);
     answer = numbers[0];
 
-    if(operators === null) return displayText.textContent = "ERROR!";
+    if (operators === null) return displayText.textContent = "ERROR!";
 
     for (let i = 0; i < operators.length; i++) {
         let op = operators[i];
@@ -63,14 +69,14 @@ btnEquals.addEventListener('click', () => {
                 break;
             case "/":
                 console.log(num);
-                console.log(typeof(num))
+                console.log(typeof (num))
                 if (num === 0) {
                     displayText.style.paddingLeft = "10px";
                     displayText.style.fontSize = "20px";
                     displayText.textContent = "ERROR! CANNOT DIVIDE BY ZERO!";
                     return displayAnswer.textContent = "";
                 } else {
-                answer /= num;
+                    answer /= num;
                 }
                 break;
             default:
@@ -89,14 +95,14 @@ document.onkeydown = function (e) {
     console.log(e)
     if (answer) displayAnswer.textContent = "";
 
-    if(e.key === 'c') {
+    if (e.key === 'c') {
         input = '';
         displayText.textContent = input;
         displayAnswer.textContent = "";
         return;
     }
 
-    if(e.key === 'Backspace'){
+    if (e.key === 'Backspace') {
         let len = input.length;
 
         if (len < 2) {
@@ -116,7 +122,7 @@ document.onkeydown = function (e) {
         return;
     }
 
-    if(e.key === '=') {
+    if (e.key === '=') {
         let regex = /[+\-*/]/g;
         let operators = input.match(regex);
         let numbers = input.split(regex).map(Number);
@@ -163,5 +169,5 @@ document.onkeydown = function (e) {
     }
 
     input += e.key;
-    displayText.textContent = input;
+    checkInputLength(input);
 };
