@@ -23,7 +23,7 @@ function clearScreen() {
     displayAnswer.textContent = "";
 }
 
-function backSpaceOnce() {
+function backSpace() {
     let len = input.length;
 
     if (len < 2) {
@@ -94,7 +94,7 @@ btnClear.addEventListener('click', () => {
 });
 
 btnDelete.addEventListener('click', () => {
-    backSpaceOnce();
+    backSpace();
 });
 
 btnEquals.addEventListener('click', () => {
@@ -111,7 +111,7 @@ document.onkeydown = function (e) {
     }
 
     if (e.key === 'Backspace') {
-        backSpaceOnce();
+        backSpace();
         return;
     }
 
