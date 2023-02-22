@@ -8,7 +8,6 @@ const btnEquals = document.getElementById('btn-equals');
 let answer = '';
 let input = '';
 
-// checks input length before displaying
 function checkInputLength(str) {
     if (str.length > 23) {
         displayText.textContent = `ERROR! TO MANY INPUTS`;
@@ -24,6 +23,18 @@ function clearScreen() {
     displayAnswer.textContent = "";
 }
 
+function backSpaceOnce() {
+    let len = input.length;
+
+    if (len < 2) {
+        input = '';
+        displayText.textContent = input;
+    }
+
+    input = input.slice(0, len - 1);
+    displayText.textContent = input;
+}
+
 btnInputs.forEach(button => button.addEventListener('click', (e) => {
     if (answer) displayAnswer.textContent = "";
     input += e.target.value;
@@ -36,15 +47,7 @@ btnClear.addEventListener('click', () => {
 });
 
 btnDelete.addEventListener('click', () => {
-    let len = input.length;
-
-    if (len < 2) {
-        input = '';
-        displayText.textContent = input;
-    }
-
-    input = input.slice(0, len - 1);
-    displayText.textContent = input;
+    backSpaceOnce();
 });
 
 btnEquals.addEventListener('click', () => {
@@ -104,15 +107,7 @@ document.onkeydown = function (e) {
     }
 
     if (e.key === 'Backspace') {
-        let len = input.length;
-
-        if (len < 2) {
-            input = '';
-            displayText.textContent = input;
-        }
-
-        input = input.slice(0, len - 1);
-        displayText.textContent = input;
+        backSpaceOnce();
         return;
     }
 
