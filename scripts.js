@@ -113,11 +113,6 @@ document.onkeydown = function (e) {
 
     if (e.key === 'Shift') return;
 
-    if (input.length > 23) {
-        displayText.textContent = `ERROR! TO MANY INPUTS`;
-        return;
-    }
-
     if (e.key === '=') {
         let regex = /[+\-*/]/g;
         let operators = input.match(regex);
