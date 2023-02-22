@@ -5,11 +5,15 @@ const btnClear = document.getElementById('btn-clear');
 const btnDelete = document.getElementById('btn-delete');
 const btnEquals = document.getElementById('btn-equals');
 
-let answer = '';
 let input = '';
+let answer = '';
 
 function displayTextOnScreen(str) {
     displayText.textContent = str;
+}
+
+function displayAnswerOnScreen(str) {
+    displayAnswer.textContent = str;
 }
 
 function checkInputLength(str) {
@@ -24,8 +28,9 @@ function checkInputLength(str) {
 
 function clearScreen() {
     input = '';
+    answer = '';
     displayTextOnScreen(input);
-    displayAnswer.textContent = "";
+    displayAnswerOnScreen(answer);
 }
 
 function backSpace() {
@@ -71,28 +76,34 @@ function calculateEquation() {
                 console.log(typeof (num))
                 if (num === 0) {
                     let calcError = "ERROR! CANNOT DIVIDE BY ZERO!";
+                    let answer = '';
                     displayText.style.paddingLeft = "10px";
                     displayText.style.fontSize = "20px";
                     displayTextOnScreen(calcError);
-                    return displayAnswer.textContent = "";
+                    return displayAnswerOnScreen(answer);
                 } else {
                     answer /= num;
                 }
                 break;
             default:
-                displayAnswer.textContent = "ERROR!"
+                let calcError = "ERROR!";
+                displayAnswerOnScreen(calcError);
         }
     }
 
     let roundedAnswer = Math.round(answer * 100) / 100
 
-    displayAnswer.textContent = roundedAnswer;
+    displayAnswerOnScreen(roundedAnswer);
     input = "";
     displayTextOnScreen(input);
 }
 
 btnInputs.forEach(button => button.addEventListener('click', (e) => {
-    if (answer) displayAnswer.textContent = "";
+    if (answer) {
+        answer = "";
+        displayAnswerOnScreen(answer);
+    }
+
     input += e.target.value;
 
     checkInputLength(input);
@@ -112,7 +123,10 @@ btnEquals.addEventListener('click', () => {
 
 document.onkeydown = function (e) {
     console.log(e)
-    if (answer) displayAnswer.textContent = "";
+    if (answer) {
+        answer = "";
+        displayAnswerOnScreen(answer)
+    }
 
     if (e.key === 'c') {
         clearScreen();
