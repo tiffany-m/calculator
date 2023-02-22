@@ -41,6 +41,9 @@ body {
 #display-text, #display-answer {
     font-family: 'Orbitron', sans-serif;
     position: absolute;
+    word-wrap: break-word;
+    word-break: break-all;
+    text-align: right;
 }
 
 #display-text {
