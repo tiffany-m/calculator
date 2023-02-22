@@ -11,6 +11,12 @@ let input = '';
 btnInputs.forEach(button => button.addEventListener('click', (e) => {
     if (answer) displayAnswer.textContent = "";
     input += e.target.value;
+
+    if (input.length > 23) {
+        displayText.textContent = `ERROR! TO MANY INPUTS`;
+        return;
+    }
+
     displayText.textContent = input;
 }))
 
@@ -104,6 +110,11 @@ document.onkeydown = function (e) {
     }
 
     if (e.key === 'Shift') return;
+
+    if (input.length > 23) {
+        displayText.textContent = `ERROR! TO MANY INPUTS`;
+        return;
+    }
 
     if(e.key === '=') {
         let regex = /[+\-*/]/g;
