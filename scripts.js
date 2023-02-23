@@ -137,7 +137,7 @@ document.onkeydown = function (e) {
 
     if (e.key === 'Shift') return;
 
-    if (e.key === '=') {
+    if (e.key === '=' || e.key === 'Enter') {
         calculateEquation();
         return;
     }
