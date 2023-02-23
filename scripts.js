@@ -117,6 +117,7 @@ btnEquals.addEventListener("click", () => {
     calculateEquation();
 })
 
+// keyboard support
 document.onkeydown = function (e) {
     let charNotAllowed = "abdefghijklmnopqrstuvwxyzABDEFGHIJKLMNOPQRSTUVWXYZ,?!@#$%^&()_;:'<>~|scripts.js:122TabCapslockControlAltNumLockHomeArrowUpPageUpArrowLeftArrowRightArrowDownPageDownClearEndInsert";
 
