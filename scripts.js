@@ -72,8 +72,6 @@ function calculateEquation() {
                 answer *= num;
                 break;
             case "/":
-                console.log(num);
-                console.log(typeof (num))
                 if (num === 0) {
                     let calcError = "ERROR! CANNOT DIVIDE BY ZERO!";
                     let answer = '';
@@ -122,7 +120,6 @@ btnEquals.addEventListener('click', () => {
 })
 
 document.onkeydown = function (e) {
-    console.log(e)
     if (answer) {
         answer = "";
         displayAnswerOnScreen(answer)
