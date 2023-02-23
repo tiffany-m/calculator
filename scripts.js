@@ -118,6 +118,11 @@ btnEquals.addEventListener('click', () => {
 })
 
 document.onkeydown = function (e) {
+    let charNotAllowed = "abdefghijklmnopqrstuvwxyzABDEFGHIJKLMNOPQRSTUVWXYZ,?!@#$%^&()_;:'<>~|scripts.js:122TabCapslockControlAltNumLockHomeArrowUpPageUpArrowLeftArrowRightArrowDownPageDownClearEndInsert"
+    console.log(e.key)
+
+    if(charNotAllowed.includes(e.key)) return;
+
     if (answer) {
         answer = "";
         displayAnswerOnScreen(answer)
