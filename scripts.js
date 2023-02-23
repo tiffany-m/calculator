@@ -1,15 +1,14 @@
-let displayText = document.getElementById('display-text');
+let displayInput = document.getElementById('display-input');
 let displayAnswer = document.getElementById('display-answer');
 const btnInputs = document.querySelectorAll('.input');
 const btnClear = document.getElementById('btn-clear');
 const btnDelete = document.getElementById('btn-delete');
 const btnEquals = document.getElementById('btn-equals');
-
 let input = '';
 let answer = '';
 
-function displayTextOnScreen(str) {
-    displayText.textContent = str;
+function displayInputOnScreen(str) {
+    displayInput.textContent = str;
 }
 
 function displayAnswerOnScreen(str) {
@@ -19,17 +18,17 @@ function displayAnswerOnScreen(str) {
 function checkInputLength(str) {
     if (str.length > 23) {
         let calcError = `ERROR! TO MANY INPUTS`;
-        displayTextOnScreen(calcError);
+        displayInputOnScreen(calcError);
         return;
     } else {
-        displayTextOnScreen(input);
+        displayInputOnScreen(input);
     }
 }
 
 function clearScreen() {
     input = '';
     answer = '';
-    displayTextOnScreen(input);
+    displayInputOnScreen(input);
     displayAnswerOnScreen(answer);
 }
 
@@ -38,11 +37,11 @@ function backSpace() {
 
     if (len < 2) {
         input = '';
-        displayTextOnScreen(input);
+        displayInputOnScreen(input);
     }
 
     input = input.slice(0, len - 1);
-    displayTextOnScreen(input);
+    displayInputOnScreen(input);
 }
 
 function calculateEquation() {
@@ -54,8 +53,9 @@ function calculateEquation() {
     answer = numbers[0];
 
     if (operators === null) {
-        let calcError = "ERROR!";
-        displayTextOnScreen(calcError);
+        displayAnswerOnScreen(input);
+        input = "";
+        displayInputOnScreen(input);
     }
 
     for (let i = 0; i < operators.length; i++) {
@@ -75,9 +75,7 @@ function calculateEquation() {
                 if (num === 0) {
                     let calcError = "ERROR! CANNOT DIVIDE BY ZERO!";
                     let answer = '';
-                    displayText.style.paddingLeft = "10px";
-                    displayText.style.fontSize = "20px";
-                    displayTextOnScreen(calcError);
+                    displayInputOnScreen(calcError);
                     return displayAnswerOnScreen(answer);
                 } else {
                     answer /= num;
@@ -93,7 +91,7 @@ function calculateEquation() {
 
     displayAnswerOnScreen(roundedAnswer);
     input = "";
-    displayTextOnScreen(input);
+    displayInputOnScreen(input);
 }
 
 btnInputs.forEach(button => button.addEventListener('click', (e) => {
@@ -125,7 +123,7 @@ document.onkeydown = function (e) {
         displayAnswerOnScreen(answer)
     }
 
-    if (e.key === 'c') {
+    if (e.key === 'c' || e.key === 'C') {
         clearScreen();
         return;
     }

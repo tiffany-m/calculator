@@ -38,7 +38,7 @@ body {
     border: 1px solid black;
 }
 
-#display-text, #display-answer {
+#display-input, #display-answer {
     font-family: 'Orbitron', sans-serif;
     position: absolute;
     word-wrap: break-word;
@@ -46,7 +46,7 @@ body {
     text-align: right;
 }
 
-#display-text {
+#display-input {
     font-size: 25px;
     top: 5px;
     right: 10px;
@@ -72,23 +72,9 @@ body {
     transform: scale(0.95);
 }
 
-.btn.num {
-    background-color: #71CBC9;
-}
-
-.btn.operator {
-    background-color: #28A5D1;
-}
-
-#btn-equals {
-    background-color: #A389B8;
-}
-
-#btn-clear {
-    background-color: #E27360;
-}
-
-#btn-delete {
-    background-color: #BC577F;
-}
+.btn.num { background-color: #71CBC9; }
+.btn.operator { background-color: #28A5D1; }
+#btn-equals { background-color: #A389B8; }
+#btn-clear { background-color: #E27360; }
+#btn-delete { background-color: #BC577F; }
 
