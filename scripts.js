@@ -1,11 +1,11 @@
-let displayInput = document.getElementById('display-input');
-let displayAnswer = document.getElementById('display-answer');
-const btnInputs = document.querySelectorAll('.input');
-const btnClear = document.getElementById('btn-clear');
-const btnDelete = document.getElementById('btn-delete');
-const btnEquals = document.getElementById('btn-equals');
-let input = '';
-let answer = '';
+let displayInput = document.getElementById("display-input");
+let displayAnswer = document.getElementById("display-answer");
+const btnInputs = document.querySelectorAll(".input");
+const btnClear = document.getElementById("btn-clear");
+const btnDelete = document.getElementById("btn-delete");
+const btnEquals = document.getElementById("btn-equals");
+let input = "";
+let answer = "";
 
 function displayInputOnScreen(str) {
     displayInput.textContent = str;
@@ -26,8 +26,8 @@ function checkInputLength(str) {
 }
 
 function clearScreen() {
-    input = '';
-    answer = '';
+    input = "";
+    answer = "";
     displayInputOnScreen(input);
     displayAnswerOnScreen(answer);
 }
@@ -36,7 +36,7 @@ function backSpace() {
     let len = input.length;
 
     if (len < 2) {
-        input = '';
+        input = "";
         displayInputOnScreen(input);
     }
 
@@ -45,7 +45,7 @@ function backSpace() {
 }
 
 function calculateEquation() {
-    // [] - define character set to match, '-' char needs escape next to it so it's not interperted as regex syntax
+    // [] - define character set to match, "-" char needs escape next to it so it"s not interperted as regex syntax
     // /g - flag indicates it will match all occurrences of the pattern in input string not just first
     let regex = /[+\-*/]/g;
     let operators = input.match(regex);
@@ -74,7 +74,7 @@ function calculateEquation() {
             case "/":
                 if (num === 0) {
                     let calcError = "ERROR! CANNOT DIVIDE BY ZERO!";
-                    let answer = '';
+                    let answer = "";
                     displayInputOnScreen(calcError);
                     return displayAnswerOnScreen(answer);
                 } else {
@@ -94,7 +94,7 @@ function calculateEquation() {
     displayInputOnScreen(input);
 }
 
-btnInputs.forEach(button => button.addEventListener('click', (e) => {
+btnInputs.forEach(button => button.addEventListener("click", (e) => {
     if (answer) {
         answer = "";
         displayAnswerOnScreen(answer);
@@ -105,15 +105,15 @@ btnInputs.forEach(button => button.addEventListener('click', (e) => {
     checkInputLength(input);
 }))
 
-btnClear.addEventListener('click', () => {
+btnClear.addEventListener("click", () => {
     clearScreen();
 });
 
-btnDelete.addEventListener('click', () => {
+btnDelete.addEventListener("click", () => {
     backSpace();
 });
 
-btnEquals.addEventListener('click', () => {
+btnEquals.addEventListener("click", () => {
     calculateEquation();
 })
 
@@ -127,19 +127,19 @@ document.onkeydown = function (e) {
         displayAnswerOnScreen(answer);
     }
 
-    if (e.key === 'c' || e.key === 'C') {
+    if (e.key === "c" || e.key === "C") {
         clearScreen();
         return;
     }
 
-    if (e.key === 'Backspace') {
+    if (e.key === "Backspace") {
         backSpace();
         return;
     }
 
-    if (e.key === 'Shift') return;
+    if (e.key === "Shift") return;
 
-    if (e.key === '=' || e.key === 'Enter') {
+    if (e.key === "=" || e.key === "Enter") {
         calculateEquation();
         return;
     }

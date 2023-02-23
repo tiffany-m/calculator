@@ -39,7 +39,7 @@ body {
 }
 
 #display-input, #display-answer {
-    font-family: 'Orbitron', sans-serif;
+    font-family: "Orbitron", sans-serif;
     position: absolute;
     word-wrap: break-word;
     word-break: break-all;
