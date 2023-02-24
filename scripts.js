@@ -107,7 +107,7 @@ btnInputs.forEach(button => button.addEventListener("click", (e) => {
         displayAnswerOnScreen(answer);
     }
 
-    if (answer) {
+    if (answer || answer === 0) {
         answer = "";
         displayAnswerOnScreen(answer);
     }
