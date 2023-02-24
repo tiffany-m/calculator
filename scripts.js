@@ -131,7 +131,10 @@ btnEquals.addEventListener("click", () => {
 
 // keyboard support
 document.onkeydown = function (e) {
-    let charNotAllowed = "abdefghijklmnopqrstuvwxyzABDEFGHIJKLMNOPQRSTUVWXYZ,?!@#$%^&()_;:'<>~|scripts.js:122TabCapslockControlAltNumLockHomeArrowUpPageUpArrowLeftArrowRightArrowDownPageDownClearEndInsert";
+    let charNotAllowed = "abdefghijklmnopqrstuvwxyzABDEFGHIJKLMNOPQRSTUVWXYZ,?!@#$%^&()_;:'<>~|TabCapslockControlAltNumLockHomeArrowUpPageUpArrowLeftArrowRightArrowDownPageDownClearEndInsert";
+
+    // for the forward slash button used for division
+    e.preventDefault()
 
     if(charNotAllowed.includes(e.key)) return;
 
