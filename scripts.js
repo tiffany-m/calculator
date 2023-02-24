@@ -6,6 +6,7 @@ const btnDelete = document.getElementById("btn-delete");
 const btnEquals = document.getElementById("btn-equals");
 let input = "";
 let answer = "";
+let errorDisplayed = false;
 
 function displayInputOnScreen(str) {
     displayInput.textContent = str;
@@ -18,6 +19,7 @@ function displayAnswerOnScreen(str) {
 function checkInputLength(str) {
     if (str.length > 23) {
         let calcError = `ERROR! TO MANY INPUTS`;
+        errorDisplayed = true;
         displayInputOnScreen(calcError);
         return;
     } else {
@@ -74,7 +76,8 @@ function calculateEquation() {
             case "/":
                 if (num === 0) {
                     let calcError = "ERROR! CANNOT DIVIDE BY ZERO!";
-                    let answer = "";
+                    answer = "";
+                    errorDisplayed = true;
                     displayInputOnScreen(calcError);
                     return displayAnswerOnScreen(answer);
                 } else {
@@ -83,6 +86,7 @@ function calculateEquation() {
                 break;
             default:
                 let calcError = "ERROR!";
+                errorDisplayed = false;
                 displayAnswerOnScreen(calcError);
         }
     }
@@ -95,6 +99,14 @@ function calculateEquation() {
 }
 
 btnInputs.forEach(button => button.addEventListener("click", (e) => {
+    if (errorDisplayed) {
+        errorDisplayed = false;
+        input = "";
+        answer = "";
+        displayInputOnScreen(input);
+        displayAnswerOnScreen(answer);
+    }
+
     if (answer) {
         answer = "";
         displayAnswerOnScreen(answer);
